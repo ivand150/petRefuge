@@ -1,1 +1,9 @@
 <p>pet-detail works!</p>
+
+<ul class='pets'>
+  <li *ngFor='let pet of pets$ | async'>
+    <span>{{pet.name}}</span>
+    <span>{{pet.type}}</span>
+    <img src="{{pet.photo}}" alt="wat">
+  </li>
+</ul>
