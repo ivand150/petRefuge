@@ -1,9 +1,21 @@
-<p>pet-detail works!</p>
 
-<ul class='pets'>
-  <li *ngFor='let pet of pets$ | async'>
-    <span>{{pet.name}}</span>
-    <span>{{pet.type}}</span>
-    <img src="{{pet.photo}}" alt="wat">
-  </li>
-</ul>
+<div *ngFor='let pet of pets$ | async'>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{pet.name}}</mat-card-title>
+    <mat-card-subtitle>{{pet.type}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49905729/1/?bust=1606561688" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button class='like__button'>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+</div>
