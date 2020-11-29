@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Pet } from './pet'
+import { Pet } from './pet';
 import { catchError, map, tap } from 'rxjs/operators'
 
 @Injectable({
@@ -29,6 +29,7 @@ export class PetService {
   }
 
   getPets (): Observable<Pet[]> {
+    debugger
     return this.http.get<Pet[]>(this.petsUrl)
     .pipe(
       tap(() => console.log('pets fetched')),

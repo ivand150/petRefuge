@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.name__header {
+  color: #673ab7;
+  font-weight: bold;
+}
+
+.secondaty__nav {
+  text-align: center;
+}

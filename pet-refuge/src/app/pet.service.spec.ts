@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { PetService } from './pet.service';
 
@@ -6,7 +7,9 @@ describe('PetService', () => {
   let service: PetService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+    });
     service = TestBed.inject(PetService);
   });
 
@@ -14,9 +17,10 @@ describe('PetService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getPets should return value from observable', () => {
+  it('getPets should return value from observable', async (done) => {
     service.getPets().subscribe(value => {
       expect(value).toBe([]);
     })
+    done()
   })
 });
