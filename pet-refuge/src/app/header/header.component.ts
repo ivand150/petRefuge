@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
 
   sideNavClick (): any {
     const sideNavElement = <HTMLDivElement>document.querySelector('.side__nav');
-    sideNavElement.style.display === 'block' ? sideNavElement.style.display = '' : sideNavElement.style.display = 'block';
+    sideNavElement.style.display === 'block' ? sideNavElement.style.display = 'none' : sideNavElement.style.display = 'block';
   }
 }
