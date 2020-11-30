@@ -1,14 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
 
 import { PetService } from './pet.service';
 
 describe('PetService', () => {
   let service: PetService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      providers: [{ provide: HttpClient, useValue: httpClientSpy }]
     });
     service = TestBed.inject(PetService);
   });
@@ -17,46 +21,11 @@ describe('PetService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getPets should return value from observable', () => {
-    service.getPets().subscribe()
-
-    spyOn(service, "getPets")
-    expect(spyOn(service, "getPets")).toHaveBeenCalled()
-    // expect(http.get)
-
-    // const req: any = {
-    //   clone: jasmine.createSpy('clone')
-    // };
-
-    // // const service: any = {
-    // //   getPets: () => service,
-    // //   pipe: () => service
-    // // }
-
-    // spyOn(service, 'getPets').and.callThrough()
-
-
-  })
-
-  it('getPets should return error value', () => {
-
-    let observable = jasmine.createSpyObj('Observable', ["subscribe"])
-    spyOn(service.http, "get").and.returnValue(observable)
-
-    service.getPets()
-
-    expect(service.http.get).toHaveBeenCalledWith(service.petsUrl);
-
-  })
-
-  it('should service.http.get have been called', () => {
-
-    let observable = jasmine.createSpyObj('Observable', ["subscribe"])
-    spyOn(service.http, "get").and.returnValue(observable)
-
-    service.getPets()
-
-    expect(service.http.get).toHaveBeenCalled()
-
-  })
+  it('should be created', (done) => {
+    httpClientSpy.get.and.returnValue(of([]));
+    service.getPets().subscribe(() => {
+      expect(httpClientSpy.get.calls.count()).toBe(1);
+      done();
+    });
+  });
 });

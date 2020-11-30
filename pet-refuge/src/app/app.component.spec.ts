@@ -10,7 +10,7 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent
-      ],
+      ]
     }).compileComponents();
   });
 
@@ -19,17 +19,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  // it(`should have as title 'pet-refuge'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('pet-refuge');
-  // });
-
-  // it('should render like button', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('button').textContent).toContain('LIKE');
-  // });
 });

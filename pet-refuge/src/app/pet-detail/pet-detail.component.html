@@ -1,11 +1,22 @@
 
+<carousel class='carousel__detail' [cellsToShow]=1 [height]=300 [dots]=true>
+  <div class="carousel-cell">
+    <img class='carousel__img' src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49905729/1/?bust=1606561688">
+  </div>
+  <div class="carousel-cell">
+    <img class='carousel__img' src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49905729/1/?bust=1606561688">
+  </div>
+  <div class="carousel-cell">
+    <img class='carousel__img' src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49905729/1/?bust=1606561688">
+  </div>
+</carousel>
+
 <div *ngFor='let pet of pets$ | async'>
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>{{pet.name}}</mat-card-title>
     <mat-card-subtitle>{{pet.type}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49905729/1/?bust=1606561688" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
       The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -19,3 +30,4 @@
   </mat-card-actions>
 </mat-card>
 </div>
+
