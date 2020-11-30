@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
 import { PetService } from '../pet.service'
 import { Pet } from '../pet'
 
@@ -11,9 +11,8 @@ import { Pet } from '../pet'
 export class PetDetailComponent implements OnInit {
   pets$: Observable<Pet[]> = this.petService.getPets()
 
-  constructor(private petService: PetService) { }
+  constructor (private petService: PetService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
   }
-
 }
