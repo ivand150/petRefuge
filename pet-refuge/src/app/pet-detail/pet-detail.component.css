@@ -1,12 +1,8 @@
-.example-card {
+.pet-card {
   max-width: 350px;
   margin: auto;
 }
 
-.example-header-image {
-  background-size: cover;
-}
-
-.carousel__detail {
-  margin-top: 30px;
+.carousel__background {
+  background-color: rgba(0,0,0,0.6)
 }
