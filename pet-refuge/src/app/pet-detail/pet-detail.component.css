@@ -6,3 +6,7 @@
 .example-header-image {
   background-size: cover;
 }
+
+.carousel__detail {
+  margin-top: 30px;
+}

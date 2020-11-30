@@ -23,7 +23,9 @@
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "angular-responsive-carousel": "^1.5.11",
     "bootstrap": "^4.5.0",
+    "flickity": "^2.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

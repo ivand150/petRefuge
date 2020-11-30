@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   sideNavClick (): any {
-    const sideNavElement = <HTMLDivElement>document.querySelector('.side__nav')
-    sideNavElement.style.display === 'block' ? sideNavElement.style.display = '' : sideNavElement.style.display = 'block'
+    const sideNavElement = <HTMLDivElement>document.querySelector('.side__nav');
+    sideNavElement.style.display === 'block' ? sideNavElement.style.display = '' : sideNavElement.style.display = 'block';
   }
 }

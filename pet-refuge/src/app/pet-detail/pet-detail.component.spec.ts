@@ -10,9 +10,9 @@ describe('PetDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ PetDetailComponent, HeaderComponent ]
+      declarations: [PetDetailComponent, HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -23,12 +23,5 @@ describe('PetDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should render like button', () => {
-    const fixture = TestBed.createComponent(PetDetailComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.like__button').textContent).toContain('LIKE');
   });
 });

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Pet } from './pet';
-import { catchError, tap } from 'rxjs/operators'
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +16,23 @@ export class PetService {
     })
   }
 
-  constructor(public http: HttpClient,) { }
+  constructor (public http: HttpClient) { }
 
   handleError (operation = 'operation', result?: any) {
     return (error: any): Observable<any> => {
-      console.log(error)
+      console.log(error);
 
-      console.log(`${operation} failed: ${error.message}`)
+      console.log(`${operation} failed: ${error.message}`);
 
-      return of(result)
-    }
+      return of(result);
+    };
   }
 
   getPets (): Observable<Pet[]> {
-    debugger
     return this.http.get<Pet[]>(this.petsUrl)
-    .pipe(
-      tap(() => console.log('pets fetched')),
-      catchError(this.handleError('getPets', []))
-    )
+      .pipe(
+        tap(() => console.log('pets fetched')),
+        catchError(this.handleError('getPets', []))
+      );
   }
 }
