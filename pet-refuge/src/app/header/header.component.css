@@ -15,7 +15,7 @@
   display: none;
   position: absolute;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   background-color: #673ab7;
   z-index: 999999;
   top: 50%;

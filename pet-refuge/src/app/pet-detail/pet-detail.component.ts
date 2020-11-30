@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { Observable } from 'rxjs'
-import { PetService } from '../pet.service'
-import { Pet } from '../pet'
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PetService } from '../pet.service';
+import { Pet } from '../pet';
 
 @Component({
   selector: 'app-pet-detail',

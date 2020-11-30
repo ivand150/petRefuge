@@ -51,7 +51,14 @@ describe('HeaderComponent', () => {
     const sideNav = compiled.querySelector('.side__nav');
     sideNav.style.display = 'block';
     burguer.click();
-    expect(sideNav.style.display).toBe('');
+    expect(sideNav.style.display).toBe('none');
     done();
   });
+
+  // it('should sideNavClick function be called', (done) => {
+  //   const sidenavElement = document.querySelector('.side__nav');
+  //   component.sideNavClick();
+  //   expect(sidenavElement.style.display).toBe('none');
+  //   done();
+  // });
 });
