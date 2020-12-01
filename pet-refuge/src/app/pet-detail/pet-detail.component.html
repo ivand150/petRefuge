@@ -14,24 +14,29 @@
   </div>
 
   <div *ngFor='let pet of pets$ | async'>
-  <mat-card class="pet-card">
-    <mat-card-header>
-      <mat-card-title>{{pet.name}}</mat-card-title>
-      <mat-card-subtitle>{{pet.type}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button class='like__button'>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+  <div class='card__section'>
+    <mat-card class="pet-card">
+      <mat-card-header>
+        <mat-card-title>{{pet.name}}</mat-card-title>
+        <mat-card-subtitle>{{pet.type}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class='like__button'>LIKE</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class='meet__card'>
+    <button mat-button class='meet__button'>Want to meet {{pet.name}}?</button>
+    <button mat-button class='favorite__button' color="basic">favorite {{pet.name}}</button>
+    </mat-card>
+    </div>
   </div>
 </div>
-
 

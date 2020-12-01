@@ -1,8 +1,55 @@
 .pet-card {
-  max-width: 350px;
+  width: 350px;
   margin: auto;
 }
 
 .carousel__background {
   background-color: rgba(0,0,0,0.6)
+}
+
+.meet__card {
+  margin: auto;
+  max-width: 350px;
+  text-align: center;
+  color: white;
+  background-color: #673ab7;
+}
+
+.meet__button {
+  margin-top: 20px;
+  color:#673ab7;
+  background-color: white;
+}
+
+.favorite__button {
+  margin-top: 20px;
+  color:white;
+  background-color: #673ab7;
+  border: solid white;
+}
+
+@media (min-width: 800px) {
+  .card__section {
+    display: flex;
+    justify-content: center;
+    margin: 30px 30px 0 0;
+  }
+
+  .pet-card {
+    margin: 0;
+    width: 60%;
+    margin-right: 30px;
+  }
+
+  .meet__card {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .meet__button {
+    margin-top: 50px;
+  }
+
 }
