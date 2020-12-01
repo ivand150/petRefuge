@@ -35,4 +35,14 @@ export class PetService {
         catchError(this.handleError('getPets', []))
       );
   }
+
+  getPet (id: number): Observable<Pet> {
+    const url = `${this.petsUrl}/detail?id=${id}`;
+
+    return this.http.get<Pet>(url)
+      .pipe(
+        tap(() => console.log(`fetched pet ${id}`)),
+        catchError(this.handleError(`getPet id=${id}`, []))
+      );
+  }
 }

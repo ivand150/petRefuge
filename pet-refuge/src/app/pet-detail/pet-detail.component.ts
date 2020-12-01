@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { PetService } from '../pet.service';
+import { ActivatedRoute } from '@angular/router';
 import { Pet } from '../pet';
 
 @Component({
@@ -9,10 +9,23 @@ import { Pet } from '../pet';
   styleUrls: ['./pet-detail.component.css']
 })
 export class PetDetailComponent implements OnInit {
-  pets$: Observable<Pet[]> = this.petService.getPets()
+  pet: Pet | undefined;
 
-  constructor (private petService: PetService) { }
+  constructor (
+    private petService: PetService,
+    private route: ActivatedRoute
+  ) { }
+
+  getPet (): void {
+    const id: number = +this.route.snapshot.paramMap.get('id')!;
+    this.petService.getPet(id)
+      .subscribe(pet => {
+        console.log(id);
+        this.pet = pet;
+      });
+  }
 
   ngOnInit (): void {
+    this.getPet();
   }
 }
