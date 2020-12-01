@@ -1,10 +1,35 @@
+.card__header--text {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
 .pet-card {
   width: 350px;
   margin: auto;
 }
 
+.like__button {
+  border: solid;
+  margin-left:auto;
+}
+
+.description__card {
+  margin-top: 20px;
+}
+
 .carousel__background {
   background-color: rgba(0,0,0,0.6)
+}
+
+
+.card__header--subtext {
+  font-size: 16px;
+}
+
+.description__text {
+  text-align: justify;
+  font-size: 16px;
 }
 
 .meet__card {
@@ -39,6 +64,7 @@
     margin: 0;
     width: 60%;
     margin-right: 30px;
+    padding: 24px;
   }
 
   .meet__card {
