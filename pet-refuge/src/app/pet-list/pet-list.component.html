@@ -1,0 +1,10 @@
+<section class='list__section'>
+  <a *ngFor="let pet of pets$ | async"
+  routerLink="/detail/{{pet.id}}"
+  >
+    <div>{{pet.id}}</div>
+    <div>{{pet.name}}</div>
+    <div>{{pet.type}}</div>
+    <div>{{pet.description}}</div>
+  </a>
+</section>

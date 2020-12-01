@@ -1,10 +1,36 @@
+.card__header--text {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
 .pet-card {
   width: 350px;
   margin: auto;
 }
 
+.like__button {
+  border: solid;
+  margin-left:auto;
+}
+
+.description__card {
+  margin-top: 20px;
+}
+
 .carousel__background {
   background-color: rgba(0,0,0,0.6)
+}
+
+
+.card__header--subtext {
+  font-size: 16px;
+}
+
+.description__text {
+  text-align: justify;
+  font-size: 16px;
+  margin-top: 30px !important;
 }
 
 .meet__card {
@@ -13,6 +39,8 @@
   text-align: center;
   color: white;
   background-color: #673ab7;
+  display: flex;
+  flex-direction: column;
 }
 
 .meet__button {
@@ -39,12 +67,13 @@
     margin: 0;
     width: 60%;
     margin-right: 30px;
+    padding: 24px;
   }
 
   .meet__card {
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 0;
   }
 
