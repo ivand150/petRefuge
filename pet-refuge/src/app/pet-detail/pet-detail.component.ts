@@ -12,8 +12,8 @@ export class PetDetailComponent implements OnInit {
   pet: Pet | undefined;
 
   constructor (
-    private petService: PetService,
-    private route: ActivatedRoute
+    public petService: PetService,
+    public route: ActivatedRoute
   ) { }
 
   getPet (): void {

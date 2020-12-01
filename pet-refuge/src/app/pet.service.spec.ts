@@ -21,11 +21,30 @@ describe('PetService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be created', (done) => {
+  it('getPets should be called', (done) => {
     httpClientSpy.get.and.returnValue(of([]));
     service.getPets().subscribe(() => {
       expect(httpClientSpy.get.calls.count()).toBe(1);
       done();
     });
   });
+
+  it('getPet should be called', (done) => {
+    const id: number = 2;
+    httpClientSpy.get.and.returnValue(of([]));
+    service.getPet(id).subscribe(() => {
+      expect(httpClientSpy.get.calls.count()).toBe(1);
+      done();
+    });
+  });
+
+  // it('getPet should be called', (done) => {
+  //   const operation = '';
+  //   const result: any = '';
+  //   httpClientSpy.get.and.returnValue(of([]));
+  //   service.handleError(operation, result)(() => {
+  //     expect(httpClientSpy.get.calls.count()).toBe(1);
+  //     done();
+  //   });
+  // });
 });
