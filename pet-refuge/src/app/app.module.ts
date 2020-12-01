@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatButtonModule,
     IvyCarouselModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
