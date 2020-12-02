@@ -16,13 +16,15 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { PetListComponent } from './pet-list/pet-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetDetailComponent,
     HeaderComponent,
-    PetListComponent
+    PetListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

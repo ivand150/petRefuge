@@ -16,8 +16,8 @@ export class PetDetailComponent implements OnInit {
     public route: ActivatedRoute
   ) { }
 
-  getPet (): void {
-    const id: number = +this.route.snapshot.paramMap.get('id')!;
+  getPet (id:number): void {
+    console.log('testing.....');
     this.petService.getPet(id)
       .subscribe(pet => {
         console.log(id);
@@ -26,6 +26,7 @@ export class PetDetailComponent implements OnInit {
   }
 
   ngOnInit (): void {
-    this.getPet();
+    const id: number = +this.route.snapshot.paramMap.get('id')!;
+    this.getPet(id);
   }
 }
