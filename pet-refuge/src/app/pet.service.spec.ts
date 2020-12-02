@@ -38,16 +38,10 @@ describe('PetService', () => {
     });
   });
 
-  it('getPets should be called', (done) => {
-    const errorResponse = ({
-      error: 'test 404 error',
-      status: 404,
-      statusText: 'Not Found'
-    });
-    httpClientSpy.get.and.returnValue((errorResponse));
-    service.getPets().subscribe(pets => fail('expected an error, not heroes'),
-      error => expect(error.message).toContain('test 404 error'));
-  });
+  // it('getPets should be called', (done) => {
+  //   httpClientSpy.get.and.returnValue(service.handleError);
+  //   expect(service.handleError).toHaveBeenCalled();
+  // });
 
   // it('getPet should be called', (done) => {
   //   const operation = '';
