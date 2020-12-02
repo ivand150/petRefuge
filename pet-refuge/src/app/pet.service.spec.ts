@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { PetService } from './pet.service';
 
@@ -38,18 +38,17 @@ describe('PetService', () => {
     });
   });
 
-  // it('getPets should be called', (done) => {
-  //   httpClientSpy.get.and.returnValue(service.handleError);
-  //   expect(service.handleError).toHaveBeenCalled();
-  // });
+  it('getPets should be called', () => {
+    spyOn(service, 'handleError');
+    service.handleError();
+    expect(service.handleError).toHaveBeenCalled();
+  });
 
-  // it('getPet should be called', (done) => {
-  //   const operation = '';
-  //   const result: any = '';
-  //   httpClientSpy.get.and.returnValue(of([]));
-  //   service.handleError(operation, result)(() => {
-  //     expect(httpClientSpy.get.calls.count()).toBe(1);
-  //     done();
-  //   });
-  // });
+  it('getPet should be called', async () => {
+    spyOn(service, 'getPet').and.returnValue(throwError({ status: 404 }));
+    httpClientSpy.get.and.returnValue(of([]));
+    service.handleError()(() => {
+      expect(service.handleError).toHaveBeenCalled();
+    });
+  });
 });

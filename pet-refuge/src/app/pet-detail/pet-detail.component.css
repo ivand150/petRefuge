@@ -12,6 +12,7 @@
 .like__button {
   border: solid;
   margin-left:auto;
+  margin-left: 8px !important;
 }
 
 .description__card {
