@@ -38,6 +38,11 @@ describe('PetService', () => {
     });
   });
 
+  // it('getPets should be called', (done) => {
+  //   httpClientSpy.get.and.returnValue(service.handleError);
+  //   expect(service.handleError).toHaveBeenCalled();
+  // });
+
   // it('getPet should be called', (done) => {
   //   const operation = '';
   //   const result: any = '';
