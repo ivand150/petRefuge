@@ -17,10 +17,8 @@ export class PetDetailComponent implements OnInit {
   ) { }
 
   getPet (id:number): void {
-    console.log('testing.....');
     this.petService.getPet(id)
       .subscribe(pet => {
-        console.log(id);
         this.pet = pet;
       });
   }
