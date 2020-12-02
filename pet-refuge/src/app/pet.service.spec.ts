@@ -44,11 +44,12 @@ describe('PetService', () => {
     expect(service.handleError).toHaveBeenCalled();
   });
 
-  it('getPet should be called', async () => {
+  it('getPet should throw error', (done) => {
     spyOn(service, 'getPet').and.returnValue(throwError({ status: 404 }));
     httpClientSpy.get.and.returnValue(of([]));
     service.handleError()(() => {
       expect(service.handleError).toHaveBeenCalled();
     });
+    done();
   });
 });
