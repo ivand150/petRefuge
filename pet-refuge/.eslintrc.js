@@ -19,4 +19,4 @@ module.exports = {
     'no-useless-constructor': 'off',
     semi: [2, 'always']
   }
-}
+};

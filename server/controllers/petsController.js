@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 function petsController(pets) {
   function getMethod(req, res) {
     console.log('getting data...');
