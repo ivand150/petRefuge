@@ -6,7 +6,7 @@
   </div>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon favorite-icon" color='primary' aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
+    <mat-icon matBadge="1" matBadgeColor="warn">favorite</mat-icon>
   </button>
   <button mat-icon-button class="burguerButton" color='primary' aria-label="Example icon-button with menu icon" (click)='sideNavClick()'>
     <mat-icon>menu</mat-icon>
@@ -23,7 +23,7 @@
 </mat-toolbar>
 <mat-toolbar color="primary">
   <span class="example-spacer secondary__nav">
-    <button mat-button class='secondary__nav' color='white'>Find more pets</button>
+    <button mat-button class='secondary__nav' color='white' routerLink='/list'>Find more pets</button>
   </span>
 </mat-toolbar>
 

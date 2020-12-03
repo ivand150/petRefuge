@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PetService } from '../pet.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Pet } from '../pet';
 
 @Component({
@@ -8,23 +9,15 @@ import { Pet } from '../pet';
   templateUrl: './pet-detail.component.html',
   styleUrls: ['./pet-detail.component.css']
 })
-export class PetDetailComponent implements OnInit {
-  pet: Pet | undefined;
+export class PetDetailComponent {
+  get petId () {
+    return +this.route.snapshot.paramMap.get('id')!;
+  }
+
+  pet$: Observable<Pet> = this.petService.getPet(this.petId);
 
   constructor (
     public petService: PetService,
     public route: ActivatedRoute
   ) { }
-
-  getPet (id:number): void {
-    this.petService.getPet(id)
-      .subscribe(pet => {
-        this.pet = pet;
-      });
-  }
-
-  ngOnInit (): void {
-    const id: number = +this.route.snapshot.paramMap.get('id')!;
-    this.getPet(id);
-  }
 }

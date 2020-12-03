@@ -45,4 +45,14 @@ export class PetService {
         catchError(this.handleError(`getPet id=${id}`, []))
       );
   }
+
+  getPetType (type: string): Observable<Pet[]> {
+    const url = `${this.petsUrl}/type?type=${type}`;
+
+    return this.http.get<Pet[]>(url)
+      .pipe(
+        tap(() => console.log(`fetched ${type}`)),
+        catchError(this.handleError('get pet types', []))
+      );
+  }
 }

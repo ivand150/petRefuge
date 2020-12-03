@@ -1,40 +1,28 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { HttpClientTestingModule } from '@angular/common/http/testing';
-// import { PetDetailComponent } from './pet-detail.component';
-// import { HeaderComponent } from '../header/header.component';
-// import { RouterModule } from '@angular/router';
-// import { PetService } from '../pet.service';
-// import { of } from 'rxjs';
-// import { Pet } from '../pet';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
-// describe('PetDetailComponent', () => {
-//   let component: PetDetailComponent;
-//   let fixture: ComponentFixture<PetDetailComponent>;
+import { PetDetailComponent } from './pet-detail.component';
 
-//   const petServiceStub = {
-//     getPet: of({} as Pet)
-//   };
+describe('PetDetailComponent', () => {
+  let component: PetDetailComponent;
+  let fixture: ComponentFixture<PetDetailComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       imports: [HttpClientTestingModule, RouterModule.forRoot([])],
-//       declarations: [PetDetailComponent, HeaderComponent],
-//       providers: [{ provide: PetService, useValue: petServiceStub }]
-//     })
-//       .compileComponents();
-//   });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterModule.forRoot([])],
+      declarations: [PetDetailComponent]
+    })
+      .compileComponents();
+  });
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(PetDetailComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PetDetailComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should call getPets and return pet', async () => {
-//     // const spy = spyOn(petServiceStub, 'getPet');
-
-//     component.getPet(2);
-
-//     expect(spy).toHaveBeenCalled();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -6,8 +6,9 @@ const petShema = new Schema({
   id: { type: Number },
   type: { type: String },
   name: { type: String },
+  age: { type: String },
   description: { type: String },
-  photo: { type: String },
+  photo: [String],
 });
 
 module.exports = model('pets', petShema);
