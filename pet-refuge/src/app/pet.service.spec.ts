@@ -52,4 +52,13 @@ describe('PetService', () => {
     });
     done();
   });
+
+  it('getPet should be called', (done) => {
+    const type: string = 'Cat';
+    httpClientSpy.get.and.returnValue(of([]));
+    service.getPetType(type).subscribe(() => {
+      expect(httpClientSpy.get.calls.count()).toBe(1);
+      done();
+    });
+  });
 });
