@@ -1,6 +1,7 @@
+/* eslint-disable no-debugger */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Pet } from './pet';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -15,6 +16,8 @@ export class PetService {
       'Content-Type': 'application/json'
     })
   }
+
+  pets$ = new Subject<Pet[]>()
 
   constructor (public http: HttpClient) { }
 
@@ -32,6 +35,7 @@ export class PetService {
     return this.http.get<Pet[]>(this.petsUrl)
       .pipe(
         tap(() => console.log('pets fetched')),
+        tap((pets) => this.pets$.next(pets)),
         catchError(this.handleError('getPets', []))
       );
   }
@@ -47,12 +51,15 @@ export class PetService {
   }
 
   getPetType (type: string): Observable<Pet[]> {
+    debugger;
     const url = `${this.petsUrl}/type?type=${type}`;
 
     return this.http.get<Pet[]>(url)
       .pipe(
         tap(() => console.log(`fetched ${type}`)),
-        catchError(this.handleError('get pet types', []))
+        tap((pets) => this.pets$.next(pets)),
+        catchError(this.handleError('get pet types', [])
+        )
       );
   }
 }
