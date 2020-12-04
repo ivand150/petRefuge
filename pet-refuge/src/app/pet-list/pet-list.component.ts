@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pet-list.component.css']
 })
 export class PetListComponent implements OnInit {
-  pets$: Observable<Pet[]> = this.petService.getPets()
+  pets$: Observable<Pet[]> | undefined;
   constructor (private petService: PetService) { }
 
   ngOnInit (): void {
+    this.pets$ = this.petService.pets$;
   }
 }

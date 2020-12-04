@@ -13,9 +13,8 @@
   </button>
   <div class='nav__desktop--container'>
     <div class='nav__desktop--find'>
-      <div class='nav__desktop'>Find a cat</div>
-      <div class='nav__desktop'>Find a Dog</div>
-      <div class='nav__desktop'>Find another Pet</div>
+      <div class='nav__desktop' (click)='findPet("Cat")'>Find a cat</div>
+      <div class='nav__desktop' (click)='findPet("Dog")'>Find a Dog</div>
     </div>
     <div class='flex-divisor'></div>
     <div class='nav__desktop' id='login__nav'>Log In</div>
@@ -23,7 +22,7 @@
 </mat-toolbar>
 <mat-toolbar color="primary">
   <span class="example-spacer secondary__nav">
-    <button mat-button class='secondary__nav' color='white' routerLink='/list'>Find more pets</button>
+    <button mat-button class='secondary__nav' color='white' routerLink='/list' (click)='findPets()'>Find more pets</button>
   </span>
 </mat-toolbar>
 
