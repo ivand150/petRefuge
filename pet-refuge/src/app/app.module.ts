@@ -18,6 +18,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PetListComponent } from './pet-list/pet-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     PetDetailComponent,
     HeaderComponent,
     PetListComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

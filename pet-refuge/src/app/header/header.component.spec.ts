@@ -59,7 +59,7 @@ describe('HeaderComponent', () => {
     done();
   });
 
-  it('should call get find pet on click find a cat button', async (done) => {
+  it('should call get findPet on click find button', async (done) => {
     const spyFn = spyOn(component, 'findPet').and.callThrough();
     const compiled = fixture.nativeElement;
     const navButton = compiled.querySelector('.nav__desktop');
@@ -68,7 +68,7 @@ describe('HeaderComponent', () => {
     done();
   });
 
-  it('should call get find pet on click find a cat button', async (done) => {
+  it('should call get findPets on click find a cat button', async (done) => {
     const spyFn = spyOn(component, 'findPets').and.callThrough();
     const compiled = fixture.nativeElement;
     const navButton = compiled.querySelector('.secondary__nav--pets');

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PetService } from '../pet.service';
-// import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
