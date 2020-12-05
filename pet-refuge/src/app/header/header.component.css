@@ -114,4 +114,8 @@ a:link {
     display: block;
     height: 100%;
   }
+
+  .secondary__nav--pets {
+    font-size: 16px;
+  }
 }
