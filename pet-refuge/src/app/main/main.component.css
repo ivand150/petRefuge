@@ -129,4 +129,13 @@
     flex-direction: column;
     justify-content: space-evenly;
   }
+
+  .promo__title {
+    font-size: 36px;
+  }
+
+  .promo__text {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
