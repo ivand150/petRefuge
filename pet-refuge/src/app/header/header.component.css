@@ -79,13 +79,13 @@ a:link {
   .nav__desktop--find {
     display: flex;
     justify-content: space-around;
-    width: 40%;
+    width: 30%;
   }
 
   .desktop__right-buttons {
     display: flex;
     justify-content: space-around;
-    width: 30%;
+    width: 20%;
   }
 
   .nav__desktop--container {
