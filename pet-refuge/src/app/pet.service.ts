@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
@@ -51,7 +50,6 @@ export class PetService {
   }
 
   getPetType (type: string): Observable<Pet[]> {
-    debugger;
     const url = `${this.petsUrl}/type?type=${type}`;
 
     return this.http.get<Pet[]>(url)
