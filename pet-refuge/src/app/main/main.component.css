@@ -1,8 +1,11 @@
 .main__image-section {
   width: 100%;
-  height: 50vh;
   overflow: hidden;
   position: relative;
+}
+
+.promo__card {
+  padding: 24px;
 }
 
 .main__image {
@@ -10,12 +13,59 @@
   height: auto;
 }
 
+.promo__img {
+  width: 100%;
+  height: auto;
+}
+
 .title__main {
   color: white;
   position:absolute;
-  left: 20%;
-  top: 50%;
-  font-size: 60px;
+  left: 10%;
+  top: 40%;
+  font-weight: bold;
+  font-size: 30px;
   color: black;
   opacity: 0.7;
+}
+
+.first__button {
+  width: 50vw;
+  height: 50px;
+  border-radius: 0;
+}
+
+.second__button {
+  width: 100vw;
+  height: 50px;
+  border-radius: 0;
+  background-color:#410078;
+}
+
+.promo_section {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.promo__title {
+  font-size: 24px;
+}
+
+.promo__text {
+  text-align: justify;
+  font-size: 16px;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+
+  .title__main {
+    left: 15%;
+    top: 50%;
+    font-size: 60px;
+  }
+
+  .main__image-section {
+    height: 50vh;
+  }
 }
