@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from '@auth0/auth0-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,10 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     BrowserModule,
+    AuthModule.forRoot({
+      domain: 'dev-wv5i9q-0.us.auth0.com',
+      clientId: 'xXBugBYWP3MvAL5d6wxJ6yMInrLbVzJX'
+    }),
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
