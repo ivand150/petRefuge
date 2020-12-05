@@ -87,13 +87,13 @@
 
   .first__button {
     width: 50vw;
-    height: 100px;
+    height: 60px;
     font-size: 16px;
   }
 
   .second__button {
     width: 50vw;
-    height: 100px;
+    height: 60px;
     font-size: 16px;
   }
 
@@ -122,5 +122,11 @@
 
   .mat-card {
     border-radius: 0;
+  }
+
+  .promo__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }
