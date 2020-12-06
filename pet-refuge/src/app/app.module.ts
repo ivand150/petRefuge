@@ -20,6 +20,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MainComponent } from './main/main.component';
+import { AuthButtonComponent } from './auth-button/auth-button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MainComponent } from './main/main.component';
     HeaderComponent,
     PetListComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    AuthButtonComponent
   ],
   imports: [
     BrowserModule,

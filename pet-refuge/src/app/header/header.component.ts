@@ -1,8 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PetService } from '../pet.service';
-import { AuthService } from '@auth0/auth0-angular';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor (private petService: PetService, @Inject(DOCUMENT) public document: Document, public auth: AuthService) {
+  constructor (private petService: PetService) {
   }
 
   pets: Subject<any> = new Subject()
