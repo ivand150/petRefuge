@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { PetListComponent } from './pet-list/pet-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MainComponent } from './main/main.component';
+import { environment } from '../environments/environment';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +32,14 @@ import { MainComponent } from './main/main.component';
     HeaderComponent,
     PetListComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AuthModule.forRoot({
-      domain: 'dev-wv5i9q-0.us.auth0.com',
-      clientId: 'xXBugBYWP3MvAL5d6wxJ6yMInrLbVzJX'
-    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
