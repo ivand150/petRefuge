@@ -33,6 +33,7 @@
   width: 50vw;
   height: 50px;
   border-radius: 0;
+  outline: none;
 }
 
 .second__button {
@@ -40,6 +41,7 @@
   height: 50px;
   border-radius: 0;
   background-color:#410078;
+  outline: none;
 }
 
 .promo_section--first {

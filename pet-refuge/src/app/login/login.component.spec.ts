@@ -9,8 +9,8 @@
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       imports: [AngularFirestore],
-//       declarations: [LoginComponent]
+//       declarations: [LoginComponent, AngularFirestore],
+//       providers: [AngularFirestore]
 //     })
 //       .compileComponents();
 //   });

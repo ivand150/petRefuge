@@ -18,7 +18,7 @@
     <button mat-icon-button class="burguerButton" color='primary' aria-label="Example icon-button with menu icon" (click)='sideNavClick()'>
       <mat-icon>menu</mat-icon>
     </button>
-    <app-login></app-login>
+    <app-login class='login__header'></app-login>
   </div>
 </div>
 </mat-toolbar>
@@ -36,7 +36,7 @@
     <span class='flex-divisor'></span>
     <div class='login__nav'>
       <span class='text__side--nav'>Sign Up</span>
-      <span class='text__side--nav'>Login</span>
+      <app-login class='login__side--nav'></app-login>
     </div>
   </div>
 </div>
