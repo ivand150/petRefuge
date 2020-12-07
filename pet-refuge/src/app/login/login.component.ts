@@ -4,15 +4,7 @@ import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
-  template: `
-    <div *ngIf="auth.user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
-  `
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   constructor (public auth: AngularFireAuth) {
