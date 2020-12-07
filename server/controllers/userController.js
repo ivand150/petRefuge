@@ -8,7 +8,6 @@ function userController(user) {
     ));
   }
   function putMethod({ body }, res) {
-    console.log(body);
     const query = { name: body.name };
     user.findOneAndUpdate(query, body, {
       upsert: true, useFindAndModify: false,
