@@ -1,28 +1,27 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
 import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
-  template: `
-    <div *ngIf="auth.user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
-  `
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor (public auth: AngularFireAuth) {
+  constructor (public auth: AngularFireAuth, private router: Router) {
   }
 
-  login () {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  async login () {
+    const testuser = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    console.log(testuser);
   }
 
   logout () {
     this.auth.signOut();
+    if (this.router.url === '/user') {
+      this.router.navigate(['app-main']);
+    }
   }
 }

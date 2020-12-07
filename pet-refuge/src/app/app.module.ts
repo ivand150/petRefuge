@@ -24,6 +24,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MainComponent } from './main/main.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     PetListComponent,
     FooterComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

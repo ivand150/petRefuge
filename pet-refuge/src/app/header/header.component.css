@@ -58,10 +58,23 @@ a:link {
 
 .nav__desktop {
   display: none;
+  outline: none;
 }
 
 .icon__image {
   display: none;
+}
+
+.login__header {
+  display: none;
+}
+
+.login__side--nav {
+  border: none;
+}
+
+.secondary__nav--pets {
+  outline: none;
 }
 
 @media (min-width: 800px) {
@@ -118,4 +131,9 @@ a:link {
   .secondary__nav--pets {
     font-size: 16px;
   }
+
+  .login__header {
+    display: flex;
+  }
+
 }
