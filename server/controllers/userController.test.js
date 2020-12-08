@@ -7,8 +7,12 @@ describe('getMethod', () => {
       send: jest.fn(),
     };
 
-    user.findOne = jest.fn().mockImplementationOnce((query, callback) => {
-      callback(true, {});
+    user.findOne = jest.fn().mockReturnValue({
+      populate: jest.fn().mockReturnValue({
+        exec: jest.fn().mockImplementation((callback) => {
+          callback(true, null);
+        }),
+      }),
     });
 
     userController.getMethod({ query: { name: '' } }, res);
@@ -21,8 +25,12 @@ describe('getMethod', () => {
       json: jest.fn(),
     };
 
-    user.findOne = jest.fn().mockImplementationOnce((query, callback) => {
-      callback(false, {});
+    user.findOne = jest.fn().mockReturnValue({
+      populate: jest.fn().mockReturnValue({
+        exec: jest.fn().mockImplementation((callback) => {
+          callback(false, null);
+        }),
+      }),
     });
 
     userController.getMethod({ query: { name: '' } }, res);
