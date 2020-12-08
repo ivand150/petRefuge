@@ -7,8 +7,8 @@ function userController(user) {
         : res.json(userFind)
     ));
   }
+
   function putMethod({ body }, res) {
-    console.log('trying to create');
     const query = { uid: body.uid };
     user.findOneAndUpdate(query, body, {
       upsert: true, useFindAndModify: false,
@@ -18,6 +18,7 @@ function userController(user) {
         : res.json(userModified)
     ));
   }
+
   return {
     getMethod, putMethod,
   };
