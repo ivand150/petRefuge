@@ -28,7 +28,7 @@ export class AuthService {
   async login () {
     this.fireUser = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     console.log(this.fireUser.user);
-    this.modifyUser(this.fireUser.user);
+    this.modifyUser(this.fireUser.user).subscribe();
   }
 
   logout () {
@@ -58,12 +58,11 @@ export class AuthService {
       );
   }
 
-  modifyUser (user: any): Observable<User> {
-    console.log('asdasd');
+  modifyUser (user: User): Observable<User> {
     const url = `${this.userUrl}`;
-    return this.http.put<any>(url, user)
+    return this.http.put<User>(url, user)
       .pipe(
-        tap(() => console.log(`created user ${this.fireUser.user.displayName}`)),
+        tap(() => console.log(`created user ${this.fireUser.user.uid}`)),
         catchError(this.handleError(`getUser name=${name}`, []))
       );
   }

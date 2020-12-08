@@ -4,6 +4,10 @@
     <div>{{user.displayName}}</div>
     <div>{{user.email}}</div>
   </div>
+  <mat-divider></mat-divider>
+  <div>favorite pets:</div>
+  <div *ngFor='let pet of user.favourite'>
+    {{pet.name}}
+  </div>
 </div>
-<mat-divider></mat-divider>
-<div>favorite pets:</div>
+
