@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
-  name: { type: String },
+  uid: { type: String },
+  displayName: { type: String },
   email: { type: String },
-  photo: { type: String },
-  favourite: [Number],
+  photoURL: { type: String },
+  favourite: [{ type: Schema.Types.ObjectId, ref: 'pets' }],
 });
 
 module.exports = model('users', userSchema);

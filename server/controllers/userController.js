@@ -1,14 +1,15 @@
 function userController(user) {
   function getMethod(req, res) {
-    const query = { name: req.query.name };
-    user.findOne(query, (errorFindUser, userFind) => (
+    const query = { displayName: req.query.displayName };
+    user.findOne(query).populate('favourite').exec((errorFindUser, userFind) => (
       errorFindUser
         ? res.send(errorFindUser)
         : res.json(userFind)
     ));
   }
+
   function putMethod({ body }, res) {
-    const query = { name: body.name };
+    const query = { uid: body.uid };
     user.findOneAndUpdate(query, body, {
       upsert: true, useFindAndModify: false,
     }, (errorFindUser, userModified) => (
@@ -17,6 +18,7 @@ function userController(user) {
         : res.json(userModified)
     ));
   }
+
   return {
     getMethod, putMethod,
   };
