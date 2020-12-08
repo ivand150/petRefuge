@@ -1,7 +1,7 @@
 function userController(user) {
   function getMethod(req, res) {
     const query = { displayName: req.query.displayName };
-    user.findOne(query, (errorFindUser, userFind) => (
+    user.findOne(query).populate('favourite').exec((errorFindUser, userFind) => (
       errorFindUser
         ? res.send(errorFindUser)
         : res.json(userFind)
@@ -9,7 +9,7 @@ function userController(user) {
   }
   function putMethod({ body }, res) {
     console.log('trying to create');
-    const query = { displayName: body.displayName };
+    const query = { uid: body.uid };
     user.findOneAndUpdate(query, body, {
       upsert: true, useFindAndModify: false,
     }, (errorFindUser, userModified) => (
