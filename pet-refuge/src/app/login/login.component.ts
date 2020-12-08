@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-
-import firebase from 'firebase/app';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +9,14 @@ import firebase from 'firebase/app';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor (public auth: AngularFireAuth, private router: Router) {
+  constructor (public auth: AngularFireAuth, private router: Router, public authService: AuthService) {
   }
 
   async login () {
-    const testuser = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    console.log(testuser);
+    this.authService.login();
   }
 
   logout () {
-    this.auth.signOut();
-    if (this.router.url === '/user') {
-      this.router.navigate(['app-main']);
-    }
+    this.authService.logout();
   }
 }

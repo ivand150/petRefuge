@@ -1,7 +1,8 @@
-<div *ngIf="auth.user | async as user">
+<div *ngIf="user$ | async as user">
   <div class='user__header'>
     <img class='user__photo' src="{{user.photoURL}}" alt="">
     <div>{{user.displayName}}</div>
+    <div>{{user.email}}</div>
   </div>
 </div>
 <mat-divider></mat-divider>
