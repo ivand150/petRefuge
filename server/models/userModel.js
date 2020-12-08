@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
-  name: { type: String },
+  displayName: { type: String },
   email: { type: String },
-  photo: { type: String },
+  photoURL: { type: String },
   favourite: [Number],
 });
 

@@ -1,6 +1,6 @@
 function userController(user) {
   function getMethod(req, res) {
-    const query = { name: req.query.name };
+    const query = { displayName: req.query.displayName };
     user.findOne(query, (errorFindUser, userFind) => (
       errorFindUser
         ? res.send(errorFindUser)
@@ -8,7 +8,8 @@ function userController(user) {
     ));
   }
   function putMethod({ body }, res) {
-    const query = { name: body.name };
+    console.log('trying to create');
+    const query = { displayName: body.displayName };
     user.findOneAndUpdate(query, body, {
       upsert: true, useFindAndModify: false,
     }, (errorFindUser, userModified) => (
