@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
@@ -64,6 +65,15 @@ export class AuthService {
       .pipe(
         tap(() => console.log(`created user ${this.fireUser.user.uid}`)),
         catchError(this.handleError(`getUser name=${name}`, []))
+      );
+  }
+
+  addFavourite (uid: string, pet: string): Observable<User> {
+    const url = `${this.userUrl}`;
+    return this.http.post<User>(url, { uid, pet })
+      .pipe(
+        tap(() => console.log('added to favorite')),
+        catchError(this.handleError('error adding favorite', []))
       );
   }
 }
