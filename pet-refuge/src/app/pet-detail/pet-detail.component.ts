@@ -21,17 +21,29 @@ export class PetDetailComponent {
 
   favPet: any;
   user: any;
+  following: boolean = false
 
   addFavourite () {
-    // eslint-disable-next-line no-debugger
-    debugger;
+    this.following = !this.following;
     this.authService.addFavourite(this.user.uid, this.favPet._id).subscribe();
-    console.log('asdasd');
   }
 
   ngOnInit () {
-    this.pet$.subscribe(val => (this.favPet = val));
-    this.user$.subscribe(val => (this.user = val));
+    this.pet$.subscribe(val => {
+      this.favPet = val;
+      this.user$.subscribe(val => {
+        this.user = val;
+        if (this.user) {
+          this.checkIfFav();
+        }
+      });
+    });
+  }
+
+  checkIfFav () {
+    if (this.user.favourite.find((element: any) => element._id === this.favPet._id)) {
+      this.following = true;
+    }
   }
 
   constructor (

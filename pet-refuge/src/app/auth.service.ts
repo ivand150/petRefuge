@@ -69,7 +69,6 @@ export class AuthService {
   }
 
   addFavourite (uid: string, pet: string): Observable<User> {
-    debugger;
     const url = `${this.userUrl}`;
     return this.http.post<User>(url, { uid, pet })
       .pipe(

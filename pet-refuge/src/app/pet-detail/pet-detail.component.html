@@ -20,8 +20,8 @@
               {{pet?.description}}
             </p>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button class='like__button'(click)='addFavourite()'>LIKE</button>
+          <mat-card-actions >
+            <button mat-button class='like__button' (click)='addFavourite()'>{{following ? 'UNLIKE': 'LIKE' }}</button>
           </mat-card-actions>
         </mat-card>
         <mat-card class='meet__card'>
