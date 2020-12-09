@@ -6,7 +6,8 @@ function routes(user) {
   const userR = userController(user);
   userRouter.route('/')
     .get(userR.getMethod)
-    .put(userR.putMethod);
+    .put(userR.putMethod)
+    .post(userR.postMethod);
 
   return userRouter;
 }

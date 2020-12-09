@@ -70,3 +70,53 @@ describe('putMethod', () => {
     expect(res.json).toHaveBeenCalled();
   });
 });
+
+describe('postMethod', () => {
+  test('should call res.send on putMethod', async () => {
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+    };
+    const userFound = { favourite: ['ferran'], save: jest.fn() };
+
+    user.findOne = jest.fn().mockImplementationOnce((req, callback) => {
+      callback(true, userFound);
+    });
+
+    userController.postMethod({ body: { uid: '2', pet: 'ferran' } }, res);
+
+    expect(res.send).toHaveBeenCalled();
+  });
+
+  test('should call res.json on putMethod', async () => {
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+    };
+    const userFound = { favourite: ['edith'], save: jest.fn() };
+
+    user.findOne = jest.fn().mockImplementationOnce((req, callback) => {
+      callback(true, userFound);
+    });
+
+    userController.postMethod({ body: { uid: '2', pet: 'ferran' } }, res);
+
+    expect(res.json).toHaveBeenCalled();
+  });
+
+  test('should call res.send on putMethodvif not found user', async () => {
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+    };
+    const userFound = null;
+
+    user.findOne = jest.fn().mockImplementationOnce((req, callback) => {
+      callback(true, userFound);
+    });
+
+    userController.postMethod({ body: { uid: '2', pet: 'ferran' } }, res);
+
+    expect(res.send).toHaveBeenCalled();
+  });
+});
