@@ -9,8 +9,7 @@ import { AuthService } from '../auth.service';
 import { User } from '../user.model';
 
 import { PetDetailComponent } from './pet-detail.component';
-import { Subject, of } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
+import { Subject } from 'rxjs';
 
 fdescribe('PetDetailComponent', () => {
   let service: AuthService;
