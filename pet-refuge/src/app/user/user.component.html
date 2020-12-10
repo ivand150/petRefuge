@@ -12,7 +12,7 @@
   <div class='list__card-container'>
     <div *ngFor='let pet of user.favourite'>
       <a class='card__list'
-      routerLink="/detail/{{pet.id}}"
+      routerLink="/detail/{{pet._id}}"
       >
         <mat-card class='list__card'>
           <img mat-card-image class='photo__card--list' src='{{pet.photo}}'/>
