@@ -11,5 +11,6 @@ import { User } from '../user.model';
 })
 export class UserComponent {
   user$: Observable<User> = this.authService.getUser(this.authService.fireUser.user.displayName)
+
   constructor (public authService: AuthService, public petService: PetService) { }
 }

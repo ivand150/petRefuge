@@ -39,7 +39,7 @@ export class PetService {
       );
   }
 
-  getPet (id: number): Observable<Pet> {
+  getPet (id: string): Observable<Pet> {
     const url = `${this.petsUrl}/detail?id=${id}`;
 
     return this.http.get<Pet>(url)

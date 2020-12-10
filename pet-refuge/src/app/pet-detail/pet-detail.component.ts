@@ -13,7 +13,7 @@ import { User } from '../user.model';
 })
 export class PetDetailComponent {
   get petId () {
-    return +this.route.snapshot.paramMap.get('id')!;
+    return this.route.snapshot.paramMap.get('id')!;
   }
 
   pet$: Observable<Pet> = this.petService.getPet(this.petId)
