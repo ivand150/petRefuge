@@ -1,7 +1,7 @@
 function PetController(pets) {
   function getMethod(req, res) {
-    const query = { id: +req.query.id };
-    pets.findOne(query, (errorFindPet, pet) => (
+    const query = { _id: req.query.id };
+    pets.findById(query, (errorFindPet, pet) => (
       errorFindPet
         ? res.send(errorFindPet)
         : res.json(pet)
