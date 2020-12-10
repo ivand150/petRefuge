@@ -28,13 +28,13 @@ describe('PetDetailComponent', () => {
     fixture = TestBed.createComponent(PetDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    const user = {
-      uid: '1234',
-      email: 'ivandobry@hotmail.es',
-      photoURL: 'photo',
-      displayName: 'Ivan',
-      favourite: ['asdasd', 'asdasd']
-    };
+    // const user = {
+    //   uid: '1234',
+    //   email: 'ivandobry@hotmail.es',
+    //   photoURL: 'photo',
+    //   displayName: 'Ivan',
+    //   favourite: ['asdasd', 'asdasd']
+    // };
   });
 
   it('should create', () => {
