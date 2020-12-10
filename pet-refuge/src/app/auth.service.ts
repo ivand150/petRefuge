@@ -76,4 +76,6 @@ export class AuthService {
         catchError(this.handleError('error adding favorite', []))
       );
   }
+
+  // setUser ()
 }

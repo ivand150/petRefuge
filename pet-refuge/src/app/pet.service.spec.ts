@@ -30,7 +30,7 @@ describe('PetService', () => {
   });
 
   it('getPet should be called', (done) => {
-    const id: number = 2;
+    const id: string = 'ashj';
     httpClientSpy.get.and.returnValue(of([]));
     service.getPet(id).subscribe(() => {
       expect(httpClientSpy.get.calls.count()).toBe(1);
