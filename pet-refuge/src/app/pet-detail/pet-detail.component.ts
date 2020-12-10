@@ -29,6 +29,7 @@ export class PetDetailComponent {
   }
 
   ngOnInit () {
+    console.log(this);
     this.pet$.subscribe(val => {
       this.favPet = val;
       this.user$.subscribe(val => {
@@ -44,6 +45,10 @@ export class PetDetailComponent {
     if (this.user.favourite.find((element: any) => element._id === this.favPet._id)) {
       this.following = true;
     }
+  }
+
+  setUser (user: Observable<User>) {
+    this.user$ = user;
   }
 
   constructor (

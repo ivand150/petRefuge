@@ -77,5 +77,7 @@ export class AuthService {
       );
   }
 
-  // setUser ()
+  setUser (user: Subject<User>) {
+    this.user$ = user;
+  }
 }
