@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,9 @@ import { MainComponent } from './main/main.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { FormComponent } from './form/form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { UserComponent } from './user/user.component';
     FooterComponent,
     MainComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,11 @@ import { UserComponent } from './user/user.component';
     IvyCarouselModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

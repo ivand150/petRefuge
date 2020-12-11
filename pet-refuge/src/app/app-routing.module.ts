@@ -4,6 +4,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'list', component: PetListComponent },
   { path: 'detail/:id', component: PetDetailComponent },
   { path: 'user', component: UserComponent },
+  { path: 'form', component: FormComponent },
   { path: '**', redirectTo: '/main', pathMatch: 'full' }
 ];
 

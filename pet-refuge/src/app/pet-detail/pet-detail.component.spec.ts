@@ -11,7 +11,7 @@ import { User } from '../user.model';
 import { PetDetailComponent } from './pet-detail.component';
 import { Subject } from 'rxjs';
 
-fdescribe('PetDetailComponent', () => {
+describe('PetDetailComponent', () => {
   let service: AuthService;
   let component: PetDetailComponent;
   let fixture: ComponentFixture<PetDetailComponent>;
