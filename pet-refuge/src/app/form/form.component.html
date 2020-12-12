@@ -30,14 +30,14 @@
   <div class='form__element'>
     <div class="mb-3">
       <label for="photo" class="form-label">Photo</label>
-      <input type="email" class="form-control" id="photo" placeholder="photo-url">
+      <input type="email" class="form-control" id="photo" placeholder="photo-url" [formControl]='petPhoto'>
     </div>
   </div>
 
   <div class='form__element'>
     <div class="mb-3">
       <label for="description" class="form-label">Pet description</label>
-      <textarea class="form-control" id="description" rows="3"></textarea>
+      <textarea class="form-control" id="description" rows="3" [formControl]='petDescription'></textarea>
     </div>
   </div>
 

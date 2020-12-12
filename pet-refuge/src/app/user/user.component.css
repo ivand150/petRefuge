@@ -77,4 +77,9 @@
   a:link {
     text-decoration: none;
   }
+
+  .user__header {
+    margin: 15px auto;
+    width: 40vw;
+  }
 }
