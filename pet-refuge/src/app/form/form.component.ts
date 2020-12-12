@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PetService } from '../pet.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FormModalComponent } from './form-modal/form-modal.component';
 
 @Component({
   selector: 'app-form',
@@ -8,6 +10,7 @@ import { PetService } from '../pet.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+  fReader = new FileReader()
   petTypes: string[] = ['Cat', 'Dog']
   petAges: string[] = ['Young', 'Adult', 'Senior']
 
@@ -17,9 +20,10 @@ export class FormComponent {
   petType: string = this.petTypes[0]
   petAge: string = this.petAges[0]
 
-  constructor (private petService: PetService) { }
+  constructor (private petService: PetService, public dialog: MatDialog) { }
 
-  submit () {
+  openDialog () {
     this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [this.petPhoto.value] }).subscribe();
+    this.dialog.open(FormModalComponent);
   }
 }

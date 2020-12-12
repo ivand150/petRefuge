@@ -30,7 +30,7 @@
   <div class='form__element'>
     <div class="mb-3">
       <label for="photo" class="form-label">Photo</label>
-      <input type="email" class="form-control" id="photo" placeholder="photo-url" [formControl]='petPhoto'>
+      <input type="text" class="form-control" id="photo" placeholder="photo-url" onchange="" [formControl]='petPhoto'>
     </div>
   </div>
 
@@ -41,5 +41,5 @@
     </div>
   </div>
 
-  <button mat-button type='submit' class='Add_button' (click)='submit()'>Add Pet</button>
+  <button mat-button type='Submit' value='Submit' class='Add_button' (click)='openDialog()'>Add Pet</button>
 </div>

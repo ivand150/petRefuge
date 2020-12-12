@@ -29,6 +29,8 @@ import { UserComponent } from './user/user.component';
 import { FormComponent } from './form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { FormModalComponent } from './form/form-modal/form-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { MatSelectModule } from '@angular/material/select';
     MainComponent,
     LoginComponent,
     UserComponent,
-    FormComponent
+    FormComponent,
+    FormModalComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
