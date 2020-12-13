@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormModalComponent } from './form/form-modal/form-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorModalComponent } from './form/error-modal/error-modal.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginComponent,
     UserComponent,
     FormComponent,
-    FormModalComponent
+    FormModalComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,

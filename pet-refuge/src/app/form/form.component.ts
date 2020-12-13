@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { PetService } from '../pet.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormModalComponent } from './form-modal/form-modal.component';
+import { ErrorModalComponent } from './error-modal/error-modal.component';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,6 @@ import { FormModalComponent } from './form-modal/form-modal.component';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  fReader = new FileReader()
   petTypes: string[] = ['Cat', 'Dog']
   petAges: string[] = ['Young', 'Adult', 'Senior']
 
@@ -23,7 +23,14 @@ export class FormComponent {
   constructor (private petService: PetService, public dialog: MatDialog) { }
 
   openDialog () {
-    this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [this.petPhoto.value] }).subscribe();
-    this.dialog.open(FormModalComponent);
+    if (this.petName.value !== '' && this.petPhoto.value !== '' && this.petDescription.value !== '') {
+      this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [this.petPhoto.value] }).subscribe();
+      this.petName.reset();
+      this.petPhoto.reset();
+      this.petDescription.reset();
+      this.dialog.open(FormModalComponent);
+    } else {
+      this.dialog.open(ErrorModalComponent);
+    }
   }
 }

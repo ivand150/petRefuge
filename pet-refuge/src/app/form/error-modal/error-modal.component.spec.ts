@@ -3,26 +3,25 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
-import { FormModalComponent } from './form-modal.component';
+import { ErrorModalComponent } from './error-modal.component';
 
-describe('FormModalComponent', () => {
-  let component: FormModalComponent;
-  let fixture: ComponentFixture<FormModalComponent>;
+describe('ErrorModalComponent', () => {
+  let component: ErrorModalComponent;
+  let fixture: ComponentFixture<ErrorModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [ErrorModalComponent],
       imports: [HttpClientTestingModule, RouterModule.forRoot([]), MatDialogModule],
-      declarations: [FormModalComponent],
       providers: [
         { provide: MatDialogRef, useValue: {} }
       ]
-
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormModalComponent);
+    fixture = TestBed.createComponent(ErrorModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
