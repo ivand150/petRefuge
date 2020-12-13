@@ -34,4 +34,21 @@ describe('FormComponent', () => {
     addButton.click();
     expect(spyFn).toHaveBeenCalled();
   });
+
+  it('should call openDialog', () => {
+    const spyFn = spyOn(component, 'openDialog').and.callThrough();
+    const compiled = fixture.nativeElement;
+    component.petName.patchValue({
+      petName: ''
+    });
+    component.petPhoto.patchValue({
+      petPhoto: ''
+    });
+    component.petDescription.patchValue({
+      petDescription: ''
+    });
+    const addButton = compiled.querySelector('.Add_button');
+    addButton.click();
+    expect(spyFn).toHaveBeenCalled();
+  });
 });

@@ -28,7 +28,6 @@ export class AuthService {
 
   async login () {
     this.fireUser = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    console.log(this.fireUser.user);
     this.modifyUser(this.fireUser.user).subscribe();
   }
 
