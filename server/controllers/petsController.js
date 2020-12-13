@@ -10,6 +10,7 @@ function petsController(pets) {
     ));
   }
   function putMethod({ body }, res) {
+    console.log('creating....');
     pets.create(body, (errorCreating) => (
       errorCreating
         ? res.send(errorCreating)

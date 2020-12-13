@@ -1,24 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
-import { FormComponent } from './form.component';
+import { FormModalComponent } from './form-modal.component';
 
-describe('FormComponent', () => {
-  let component: FormComponent;
-  let fixture: ComponentFixture<FormComponent>;
+describe('FormModalComponent', () => {
+  let component: FormModalComponent;
+  let fixture: ComponentFixture<FormModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterModule.forRoot([]), MatDialogModule],
-      declarations: [FormComponent]
+      declarations: [FormModalComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ]
+
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormComponent);
+    fixture = TestBed.createComponent(FormModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -28,9 +32,9 @@ describe('FormComponent', () => {
   });
 
   it('should call openDialog', () => {
-    const spyFn = spyOn(component, 'openDialog').and.callThrough();
+    const spyFn = spyOn(component, 'closeDialog').and.callThrough();
     const compiled = fixture.nativeElement;
-    const addButton = compiled.querySelector('.Add_button');
+    const addButton = compiled.querySelector('.close__modal');
     addButton.click();
     expect(spyFn).toHaveBeenCalled();
   });

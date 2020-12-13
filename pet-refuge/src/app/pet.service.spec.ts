@@ -62,3 +62,31 @@ describe('PetService', () => {
     });
   });
 });
+
+describe('pet service put', () => {
+  let service: PetService;
+  let httpClientSpy: { put: jasmine.Spy };
+
+  beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['put']);
+
+    TestBed.configureTestingModule({
+      providers: [{ provide: HttpClient, useValue: httpClientSpy }]
+    });
+    service = TestBed.inject(PetService);
+  });
+  it('addPet should be called', (done) => {
+    const pet = {
+      type: '',
+      name: '',
+      description: '',
+      age: '',
+      photo: ''
+    };
+    httpClientSpy.put.and.returnValue(of({}));
+    service.addPet(pet).subscribe(() => {
+      expect(httpClientSpy.put.calls.count()).toBe(1);
+      done();
+    });
+  });
+});
