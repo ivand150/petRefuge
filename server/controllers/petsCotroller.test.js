@@ -1,3 +1,4 @@
+const cloudinary = require('cloudinary').v2;
 const pets = require('../models/petModel');
 const petsController = require('./petsController')(pets);
 
@@ -15,6 +16,7 @@ describe('getMethod', () => {
 
     expect(res.send).toHaveBeenCalled();
   });
+
   test('Should getMethod return res.json', () => {
     const res = {
       json: jest.fn(),
@@ -44,17 +46,48 @@ describe('putMethod', () => {
 
     expect(res.send).toHaveBeenCalled();
   });
-  test('Should putMethod send a create document message', () => {
+
+  test('Should putMethod send a create document message', async () => {
     const res = {
       send: jest.fn(),
     };
 
-    pets.create = jest.fn().mockImplementationOnce((query, callback) => {
+    pets.create = await jest.fn().mockImplementationOnce((query, callback) => {
       callback(false, {});
     });
 
-    petsController.putMethod({}, res);
+    cloudinary.uploader.upload = await jest.fn().mockImplementationOnce((query, callback) => {
+      callback(false, {});
+    });
+    pets.findByIdAndUpdate = await jest.fn()
+      .mockImplementationOnce((query, body, upsert, callback) => {
+        callback(true, {});
+      });
 
-    expect(res.send).toHaveBeenCalled();
+    petsController.putMethod({ body: { photo: 'asd' } }, res);
+
+    expect(res.send).toHaveBeenCalledTimes(0);
+  });
+
+  test('Should putMethod send a create document message', async () => {
+    const res = {
+      json: jest.fn(),
+    };
+
+    pets.create = await jest.fn().mockImplementationOnce((query, callback) => {
+      callback(false, {});
+    });
+
+    cloudinary.uploader.upload = await jest.fn().mockImplementationOnce((query, callback) => {
+      callback(false, {});
+    });
+    pets.findByIdAndUpdate = await jest.fn()
+      .mockImplementationOnce((query, body, upsert, callback) => {
+        callback(false, {});
+      });
+
+    petsController.putMethod({ body: { photo: 'asd' } }, res);
+
+    expect(res.json).toHaveBeenCalledTimes(0);
   });
 });

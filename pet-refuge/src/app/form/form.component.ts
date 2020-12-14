@@ -14,16 +14,16 @@ export class FormComponent {
   petTypes: string[] = ['Cat', 'Dog']
   petAges: string[] = ['Young', 'Adult', 'Senior']
 
-  petName = new FormControl('')
-  petPhoto = new FormControl('')
-  petDescription = new FormControl('')
+  petName = new FormControl(null)
+  petPhoto = new FormControl(null)
+  petDescription = new FormControl(null)
   petType: string = this.petTypes[0]
   petAge: string = this.petAges[0]
 
   constructor (private petService: PetService, public dialog: MatDialog) { }
 
   openDialog () {
-    if (this.petName.value !== '' && this.petPhoto.value !== '' && this.petDescription.value !== '') {
+    if (this.petName.value !== null && this.petPhoto.value !== null && this.petDescription.value !== null) {
       this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [this.petPhoto.value] }).subscribe();
       this.petName.reset();
       this.petPhoto.reset();
