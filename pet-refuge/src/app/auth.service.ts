@@ -58,7 +58,7 @@ export class AuthService {
       );
   }
 
-  modifyUser (user: User): Observable<User> {
+  modifyUser (user: User | any): Observable<User> {
     const url = `${this.userUrl}`;
     return this.http.put<User>(url, user)
       .pipe(
