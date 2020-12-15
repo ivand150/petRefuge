@@ -34,17 +34,8 @@ describe('AuthService', () => {
   it('login should be called', async () => {
     const spyFn = spyOn(service, 'login').and.callThrough();
     spyFn();
-    // expect(spyFn).toHaveBeenCalled();
+    expect(spyFn).toHaveBeenCalled();
   });
-
-  // it('logout should be called', async () => {
-  //   const auth = {
-  //     auth: of({ uid: 'ABC123' })
-  //   };
-  //   const spyFn = spyOn(service, 'logout').and.callThrough();
-  //   spyFn();
-  //   expect(spyFn).toHaveBeenCalled();
-  // });
 
   it('handle error should be called', () => {
     spyOn(service, 'handleError');

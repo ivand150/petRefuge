@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { RouterTestingModule } from '@angular/router/testing';
-import { UserComponent } from '../../user/user.component';
+// import { RouterTestingModule } from '@angular/router/testing';
+// import { UserComponent } from '../../user/user.component';
 
 import { FormModalComponent } from './form-modal.component';
 
@@ -13,7 +13,7 @@ describe('FormModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterModule.forRoot([]), RouterTestingModule.withRoutes([{ path: 'user', component: UserComponent }]), MatDialogModule],
+      imports: [HttpClientTestingModule, RouterModule.forRoot([]), MatDialogModule],
       declarations: [FormModalComponent],
       providers: [
         { provide: MatDialogRef, useValue: {} }

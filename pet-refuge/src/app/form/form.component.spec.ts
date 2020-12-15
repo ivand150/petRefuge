@@ -38,15 +38,29 @@ describe('FormComponent', () => {
   it('should call openDialog', () => {
     const spyFn = spyOn(component, 'openDialog').and.callThrough();
     const compiled = fixture.nativeElement;
+    component.filePath = 'path';
+    component.petName.patchValue('name');
+    component.petPhoto.patchValue('path\\fake\\photo');
+    component.petDescription.patchValue('description');
+
+    const addButton = compiled.querySelector('.Add_button');
+    addButton.click();
+    expect(spyFn).toHaveBeenCalled();
+  });
+
+  it('should call openDialog', () => {
+    const spyFn = spyOn(component, 'openDialog');
+    const compiled = fixture.nativeElement;
     component.petName.patchValue({
-      petName: ''
+      petName: null
     });
     component.petPhoto.patchValue({
-      petPhoto: ''
+      petPhoto: null
     });
     component.petDescription.patchValue({
-      petDescription: ''
+      petDescription: null
     });
+
     const addButton = compiled.querySelector('.Add_button');
     addButton.click();
     expect(spyFn).toHaveBeenCalled();

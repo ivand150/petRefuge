@@ -19,6 +19,6 @@ export class MainComponent implements OnInit {
 
   findPet (type: string) {
     this.petService.getPetType(type)
-      .subscribe(console.log);
+      .subscribe();
   }
 }

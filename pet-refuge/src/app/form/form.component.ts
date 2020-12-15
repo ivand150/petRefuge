@@ -21,14 +21,18 @@ export class FormComponent {
   petType: string = this.petTypes[0]
   petAge: string = this.petAges[0]
 
-  imageShow: any
-
   constructor (private petService: PetService, public dialog: MatDialog) { }
 
   openDialog () {
-    const photoName = this.petPhoto.value.split('\\')[2];
     if (this.petName.value !== null && this.petPhoto.value !== null && this.petDescription.value !== null) {
-      this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [`${this.filePath}\\` + `${photoName}`] }).subscribe();
+      const photoName = this.petPhoto.value.split('\\')[2];
+      this.petService.addPet({
+        type: this.petType,
+        name: String(this.petName.value),
+        description: String(this.petDescription.value),
+        age: this.petAge,
+        photo: [`${this.filePath}\\` + `${photoName}`]
+      }).subscribe();
       this.petName.reset();
       this.petPhoto.reset();
       this.petDescription.reset();
