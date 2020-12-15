@@ -32,8 +32,8 @@ export class PetDetailComponent {
     console.log(this);
     this.pet$.subscribe(val => {
       this.favPet = val;
-      this.user$.subscribe(val => {
-        this.user = val;
+      this.user$.subscribe(element => {
+        this.user = element;
         if (this.user) {
           this.checkIfFav();
         }
