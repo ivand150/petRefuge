@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
@@ -53,7 +52,7 @@ export class AuthService {
 
     return this.http.get<User>(url)
       .pipe(
-        tap(() => console.log(`fethed user ${name}`)),
+        tap(),
         catchError(this.handleError(`getUser name=${name}`, []))
       );
   }
@@ -62,7 +61,7 @@ export class AuthService {
     const url = `${this.userUrl}`;
     return this.http.put<User>(url, user)
       .pipe(
-        tap(() => console.log(`created user ${this.fireUser.user.uid}`)),
+        tap(),
         catchError(this.handleError(`getUser name=${name}`, []))
       );
   }
@@ -71,7 +70,7 @@ export class AuthService {
     const url = `${this.userUrl}`;
     return this.http.post<User>(url, { uid, pet })
       .pipe(
-        tap(() => console.log('added to favorite')),
+        tap(),
         catchError(this.handleError('error adding favorite', []))
       );
   }

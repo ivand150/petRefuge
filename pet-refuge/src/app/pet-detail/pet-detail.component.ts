@@ -29,7 +29,6 @@ export class PetDetailComponent {
   }
 
   ngOnInit () {
-    console.log(this);
     this.pet$.subscribe(val => {
       this.favPet = val;
       this.user$.subscribe(element => {

@@ -33,7 +33,7 @@ export class PetService {
   getPets (): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.petsUrl)
       .pipe(
-        tap(() => console.log('pets fetched')),
+        tap(),
         tap((pets) => this.pets$.next(pets)),
         catchError(this.handleError('getPets', []))
       );
@@ -43,7 +43,7 @@ export class PetService {
     const url = `${this.petsUrl}/detail?id=${id}`;
     return this.http.get<Pet>(url)
       .pipe(
-        tap(() => console.log(`fetched pet ${id}`)),
+        tap(),
         catchError(this.handleError(`getPet id=${id}`, []))
       );
   }
@@ -53,7 +53,7 @@ export class PetService {
 
     return this.http.get<Pet[]>(url)
       .pipe(
-        tap(() => console.log(`fetched ${type}`)),
+        tap(),
         tap((pets) => this.pets$.next(pets)),
         catchError(this.handleError('get pet types', [])
         )
@@ -63,7 +63,7 @@ export class PetService {
   addPet (pet: any): Observable<any> {
     return this.http.put<any>(this.petsUrl, pet)
       .pipe(
-        tap(() => console.log('added new pet')),
+        tap(),
         catchError(this.handleError('adding new pet', []))
       );
   }
