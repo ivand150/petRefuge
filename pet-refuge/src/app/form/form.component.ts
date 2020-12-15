@@ -13,18 +13,22 @@ import { ErrorModalComponent } from './error-modal/error-modal.component';
 export class FormComponent {
   petTypes: string[] = ['Cat', 'Dog']
   petAges: string[] = ['Young', 'Adult', 'Senior']
+  filePath = 'C:\\Users\\ivand\\Desktop\\Skylab\\PetRefuge src';
 
   petName = new FormControl(null)
-  petPhoto = new FormControl(null)
+  petPhoto: any = new FormControl(null)
   petDescription = new FormControl(null)
   petType: string = this.petTypes[0]
   petAge: string = this.petAges[0]
 
+  imageShow: any
+
   constructor (private petService: PetService, public dialog: MatDialog) { }
 
   openDialog () {
+    const photoName = this.petPhoto.value.split('\\')[2];
     if (this.petName.value !== null && this.petPhoto.value !== null && this.petDescription.value !== null) {
-      this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [this.petPhoto.value] }).subscribe();
+      this.petService.addPet({ type: this.petType, name: String(this.petName.value), description: String(this.petDescription.value), age: this.petAge, photo: [`${this.filePath}\\` + `${photoName}`] }).subscribe();
       this.petName.reset();
       this.petPhoto.reset();
       this.petDescription.reset();
