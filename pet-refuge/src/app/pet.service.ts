@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Pet } from './pet';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ export class PetService {
     })
   }
 
-  pets$ = new Subject<Pet[]>()
+  pets$ = new BehaviorSubject<Pet[]>([])
 
   constructor (public http: HttpClient) { }
 
@@ -34,7 +34,10 @@ export class PetService {
     return this.http.get<Pet[]>(this.petsUrl)
       .pipe(
         tap(),
-        tap((pets) => this.pets$.next(pets)),
+        tap((pets) => {
+          this.pets$.next(pets);
+          console.log('PEEEEEEEEEEETS', this.pets$.getValue());
+        }),
         catchError(this.handleError('getPets', []))
       );
   }

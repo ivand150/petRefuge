@@ -38,6 +38,7 @@ export class PetDetailComponent {
         }
       });
     });
+    console.log('GET VALUE EN EL DETAILLLLLLLL', this.petService.pets$.getValue());
   }
 
   checkIfFav () {
