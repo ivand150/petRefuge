@@ -8,7 +8,7 @@ First of all, after downloading, run npm install alternatively in client app and
 
 The scripts you can run with npm (or yarn) in both apps are:
 
-- npm start (to start the react app)
+- npm start (to start the angular app)
 - npm test (to see unit & component tests)
 
 ## Unit & Component testing:
