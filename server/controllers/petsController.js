@@ -22,7 +22,6 @@ function petsController(pets) {
     let uploadedPhoto;
     let createdPet;
 
-    console.log('creating....');
     await pets.create(body, (errorCreating, newPet) => {
       if (errorCreating) {
         res.send(errorCreating);
