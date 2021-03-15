@@ -19,7 +19,7 @@ The scripts you can run with npm (or yarn) in both apps are:
 
 ### Server App
 ![tests](/images/testServer.JPG)
-![test coverage](/images/serverCoverage.jpg)
+![test coverage](/images/serverCoverage.JPG)
 
 ## Tech Stack & Libraries
 
